@@ -1,0 +1,13 @@
+<!-- @dsCard group="Navigation" height=110 subtitle="flat bar with a 2px primary underline" -->
+<link rel="stylesheet" href="../../tokens.css">
+<style>
+body{font-variation-settings:"MONO" 50;margin:0;background:var(--ground);font-family:var(--font-areal);text-transform:lowercase}
+nav{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:0 24px;min-height:56px;border-bottom:2px solid var(--primary);background:var(--ground)}
+.name{font:700 16px/1 var(--font-areal);color:var(--ink);text-decoration:none}
+.links{display:flex;gap:24px;align-items:center}
+.links a{font:400 14px/1 var(--font-areal);color:var(--ink-muted);text-decoration:none;padding:6px 0;border-bottom:2px solid transparent}
+.links a:hover{color:var(--ink);border-bottom-color:var(--primary)}
+.links a.on{color:var(--primary);border-bottom-color:var(--primary)}
+.links a:focus-visible,.name:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+</style>
+<nav><a class="name" href="#">rich henson</a><div class="links"><a class="on" href="#">about</a><a href="#">writing</a><a href="#">get in touch</a></div></nav>

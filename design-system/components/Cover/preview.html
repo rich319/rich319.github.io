@@ -1,0 +1,27 @@
+<!-- @dsCard height=288 -->
+<link rel="stylesheet" href="../../tokens.css">
+<style>
+html,body{font-variation-settings:"MONO" 50;margin:0}
+body{width:960px;height:288px;position:relative;overflow:hidden;background:var(--ground);font-family:var(--font-areal);text-transform:lowercase}
+svg{position:absolute;inset:0}
+.primary{fill:var(--primary)}.ink{fill:var(--ink)}.tint{fill:var(--tint)}.deep{fill:var(--primary-deep)}
+.copy{position:absolute;left:24px;bottom:24px;width:440px}
+h1{margin:0;font-weight:700;font-size:96px;line-height:.95;letter-spacing:-.02em;color:var(--ink)}
+p{margin:14px 0 0;font-size:14px;line-height:20px;color:var(--ink-muted)}
+</style>
+<svg width="960" height="288" viewBox="0 0 960 288" xmlns="http://www.w3.org/2000/svg">
+<!-- blocks: primary 336x144, ink 216x144, tint 240x96 on the 24px grid, all square -->
+<!-- arrangement: flush modular blocks bleeding off the top and right edges, stepping down left to right -->
+<!-- pattern: a 24px square grid (space-4) of 8px squares; precise and flat, so a square dot grid, never discs -->
+<!-- steps: space-4 pitch, radius-none -->
+<rect class="primary" x="624" y="0" width="336" height="144"/>
+<rect class="ink" x="504" y="144" width="216" height="144"/>
+<rect class="tint" x="720" y="144" width="240" height="96"/>
+<g class="primary" id="g1"></g>
+<g class="ink" id="g2"></g>
+<script>
+(function(){var n='http://www.w3.org/2000/svg';function f(id,x0,y0,c,r){var g=document.getElementById(id);for(var i=0;i<c;i++)for(var j=0;j<r;j++){var e=document.createElementNS(n,'rect');e.setAttribute('x',x0+i*24+8);e.setAttribute('y',y0+j*24+8);e.setAttribute('width',8);e.setAttribute('height',8);g.appendChild(e);}}
+f('g1',504,0,5,6);f('g2',720,240,10,2);})();
+</script>
+</svg>
+<div class="copy"><h1>rich<br>henson</h1><p>flat, square, lowercase.</p></div>

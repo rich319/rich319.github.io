@@ -1,0 +1,78 @@
+/* rich henson — generated from tokens.json */
+:root, [data-theme="light"] {
+  --ground: #ebf6fe; /* Page background. Every surface sits on it by default. */
+  --tint: #d6eafb; /* Panels, hover rows, photo placeholder and quiet blocks on ground. Never as text. */
+  --rule: #9fc3e6; /* Hairline dividers between rows and sections on ground and tint. Decorative only; controls use primary for their border. */
+  --ink: #0a1230; /* Body copy and headings on ground and tint. Focus ring. */
+  --ink-muted: #44506f; /* Secondary copy, dates and captions on ground and tint. */
+  --primary: #072ac8; /* The one brand colour: links, buttons, active states, big blocks on ground. Text on ground and tint. */
+  --primary-deep: #051c8c; /* Hover and pressed state of primary fills and links. */
+  --on-primary: #ebf6fe; /* Text and marks on primary and primary-deep fills. */
+}
+:root {
+  --space-1: 4px; /* Gap between a label and its value. */
+  --space-2: 8px; /* Gap between tags; icon and text. */
+  --space-3: 16px; /* Page gutter on phones; padding inside buttons and tags. */
+  --space-4: 24px; /* Grid unit. Gap between rows and blocks; the cover pitch. */
+  --space-5: 40px; /* Gap between a section heading and its content. */
+  --space-6: 64px; /* Vertical padding between sections. */
+  --radius-none: 0; /* Every control, panel, image and tag. There is no other radius. */
+  --border-hairline: 1px; /* Row dividers in rule colour. */
+  --border-strong: 2px; /* Button and input outlines in primary; nav underline. */
+  --font-areal: "ABC Areal", "Helvetica Neue", Arial, sans-serif;
+  --text-display-xl: 300 64px/60px var(--font-areal); /* Homepage name only. One per page. */
+  --text-display: 700 40px/42px var(--font-areal); /* Page titles. */
+  --text-heading: 700 24px/28px var(--font-areal); /* Section headings and post titles. */
+  --text-body: 400 17px/26px var(--font-areal); /* Running text, 65 characters wide at most. */
+  --text-body-small: 400 14px/21px var(--font-areal); /* Excerpts, footers and captions. */
+  --text-label: 700 12px/16px var(--font-areal); /* Section labels, tags, dates. Set with the MONO axis at 50 (semi mono). */
+}
+.display-xl {
+  font-family: var(--font-areal);
+  font-size: 64px;
+  line-height: 60px;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+}
+.display {
+  font-family: var(--font-areal);
+  font-size: 40px;
+  line-height: 42px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.heading {
+  font-family: var(--font-areal);
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.body {
+  font-family: var(--font-areal);
+  font-size: 17px;
+  line-height: 26px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.body-small {
+  font-family: var(--font-areal);
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.label {
+  font-family: var(--font-areal);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+@font-face {
+  font-family: "ABC Areal";
+  src: url("fonts/ABCArealSuperfamilyVariable.ttf") format("truetype");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
