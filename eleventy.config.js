@@ -1,15 +1,18 @@
 export default function (eleventyConfig) {
-  // Static assets copied as-is into _site
-  eleventyConfig.addPassthroughCopy("fonts");
-  eleventyConfig.addPassthroughCopy("uploads");
-  eleventyConfig.addPassthroughCopy("design-system");
+  // Images and any other static files under src/assets
+  eleventyConfig.addPassthroughCopy("src/assets");
 
-  // Don't render docs/notes as site pages
-  eleventyConfig.ignores.add("**/*.md");
-  eleventyConfig.ignores.add("design-system/**");
-  eleventyConfig.ignores.add("uploads/**");
+  // Design system: only the tokens and the font are deployed.
+  // README, previews and tokens.json stay in the repo, not on the site.
+  eleventyConfig.addPassthroughCopy({
+    "design-system/tokens.css": "assets/tokens.css",
+    "design-system/fonts": "assets/fonts",
+  });
+
+  // Cloudflare Pages headers
+  eleventyConfig.addPassthroughCopy({ "src/_headers": "_headers" });
 
   return {
-    dir: { input: ".", output: "_site" },
+    dir: { input: "src", output: "_site" },
   };
 }

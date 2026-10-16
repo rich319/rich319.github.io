@@ -28,7 +28,7 @@ No icon set. Use words. For direction, write the word ("read post") or use a pla
 
 ## Assets
 
-Font: `fonts/ABCArealSuperfamilyVariable.ttf`, weight range 400 to 700, with MONO, slnt and DRKM axes. Load it with `@font-face` and keep a `Helvetica Neue, Arial, sans-serif` fallback. No logo: the name is set in `display` as plain lowercase type.
+Font: `fonts/ABCArealSuperfamilyVariable.woff2`, weight range 400 to 700, with MONO, slnt and DRKM axes. Load it with `@font-face` and keep a `Helvetica Neue, Arial, sans-serif` fallback. No logo: the name is set in `display` as plain lowercase type.
 
 ## Files
 
