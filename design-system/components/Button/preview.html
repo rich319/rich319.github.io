@@ -1,0 +1,20 @@
+<!-- @dsCard group="Actions" height=150 subtitle="primary, outline, text link" -->
+<link rel="stylesheet" href="../../tokens.css">
+<style>
+body{font-variation-settings:"MONO" 50;margin:0;padding:24px;background:var(--ground);color:var(--ink);font-family:var(--font-areal);text-transform:lowercase}
+.row{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.btn{font:700 14px/1 var(--font-areal);text-transform:lowercase;padding:14px 20px;border:2px solid var(--primary);border-radius:0;background:var(--primary);color:var(--on-primary);cursor:pointer;transition:background 120ms linear,color 120ms linear}
+.btn:hover{background:var(--primary-deep);border-color:var(--primary-deep)}
+.btn.outline{background:transparent;color:var(--primary)}
+.btn.outline:hover{background:var(--primary);color:var(--on-primary)}
+.btn:focus-visible,.lnk:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.btn[disabled]{background:var(--tint);border-color:var(--tint);color:var(--ink-muted);cursor:not-allowed}
+.lnk{font:400 17px/26px var(--font-areal);color:var(--primary);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.lnk:hover{color:var(--primary-deep)}
+</style>
+<div class="row">
+<button class="btn">get in touch</button>
+<button class="btn outline">read post</button>
+<button class="btn" disabled>sent</button>
+<a class="lnk" href="#">all posts</a>
+</div>

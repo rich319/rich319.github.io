@@ -4,388 +4,188 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Rich Henson — Product Manager</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="design-system/tokens.css" />
 <style>
-@font-face { font-family: 'GothamSSm'; src: url('fonts/GothamSSm-Book.otf'); font-weight: 400; font-style: normal; }
-@font-face { font-family: 'GothamSSm'; src: url('fonts/GothamSSm-Medium.otf'); font-weight: 500; font-style: normal; }
-@font-face { font-family: 'GothamSSm'; src: url('fonts/GothamSSm-Bold.otf'); font-weight: 700; font-style: normal; }
-@font-face { font-family: 'Quarto'; src: url('fonts/Quarto-Light.otf'); font-weight: 300; font-style: normal; }
-@font-face { font-family: 'Quarto'; src: url('fonts/Quarto-LightItalic.otf'); font-weight: 300; font-style: italic; }
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --pink: #ED207C;
-  --pink-light: #fce9f3;
-  --purple: #4F31FF;
-  --neutral-900: #101828;
-  --neutral-700: #344054;
-  --neutral-500: #667085;
-  --neutral-300: #d0d5dd;
-  --neutral-100: #f2f4f7;
-  --neutral-50: #f9fafb;
-  --peach: #FBEFE3;
-  --surface: #ffffff;
-  --text-primary: var(--neutral-900);
-  --text-secondary: var(--neutral-500);
-  --border: #e4e7ec;
-
-  --font-sans: 'GothamSSm', 'Inter', sans-serif;
-  --font-serif: 'Quarto', Georgia, serif;
-  --font-ui: 'Gabarito', sans-serif;
-
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --shadow-sm: 0 1px 3px rgba(16,24,40,.08), 0 1px 2px rgba(16,24,40,.06);
-  --shadow-md: 0 4px 8px -2px rgba(16,24,40,.1), 0 2px 4px -2px rgba(16,24,40,.06);
-  --transition: 180ms cubic-bezier(.2,.8,.2,1);
-}
 
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: var(--font-sans);
-  font-weight: 400;
-  color: var(--text-primary);
-  background: #fff;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--font-areal);
+  font-variation-settings: "MONO" 50;
+  font-size: 17px;
+  line-height: 26px;
+  text-transform: lowercase;
   -webkit-font-smoothing: antialiased;
   text-wrap: pretty;
 }
+
+a { color: inherit; }
+a:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
 
 /* ── Nav ── */
 nav {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255,255,255,.88);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-  padding: 0 32px;
-  height: 56px;
+  background: var(--ground);
+  border-bottom: var(--border-strong) solid var(--primary);
+  padding: 0 var(--space-4);
+  min-height: 56px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 100%;
+  flex-wrap: wrap;
+  gap: var(--space-3);
 }
 .nav-name {
-  font-family: var(--font-ui);
   font-weight: 700;
   font-size: 16px;
-  color: var(--neutral-900);
+  line-height: 1;
+  color: var(--ink);
   text-decoration: none;
-  letter-spacing: -0.01em;
 }
-.nav-links {
-  display: flex;
-  gap: 32px;
-  align-items: center;
-}
+.nav-links { display: flex; gap: var(--space-4); align-items: center; flex-wrap: wrap; }
 .nav-links a {
   font-size: 14px;
-  font-weight: 500;
-  color: var(--text-secondary);
+  line-height: 1;
+  color: var(--ink-muted);
   text-decoration: none;
-  transition: color var(--transition);
+  padding: 6px 0;
+  border-bottom: var(--border-strong) solid transparent;
+  transition: color 120ms linear, border-color 120ms linear;
 }
-.nav-links a:hover { color: var(--neutral-900); }
-.nav-cta {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--pink) !important;
-}
-.nav-cta:hover { color: #c41768 !important; }
+.nav-links a:hover { color: var(--ink); border-bottom-color: var(--primary); }
+.nav-links a.nav-cta { color: var(--primary); }
+.nav-links a.nav-cta:hover { color: var(--primary-deep); border-bottom-color: var(--primary-deep); }
 
 /* ── Layout ── */
-main { max-width: 680px; margin: 0 auto; padding: 0 32px; }
+main { max-width: 680px; margin: 0 auto; padding: 0 var(--space-4); }
 
 /* ── Hero ── */
-.hero {
-  padding: 80px 0 72px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 0;
-}
-
-.photo-wrap {
-  position: relative;
-  margin-bottom: 28px;
-}
-.photo-ring {
+.hero { padding: var(--space-6) 0; }
+.photo {
   width: 96px;
   height: 96px;
-  border-radius: 50%;
-  overflow: hidden;
-  background: var(--peach);
-  border: 3px solid #fff;
-  box-shadow: var(--shadow-md), 0 0 0 1px var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.photo-ring img {
-  width: 100%;
-  height: 100%;
+  display: block;
   object-fit: cover;
+  background: var(--tint);
+  margin-bottom: var(--space-4);
 }
-.photo-placeholder {
-  font-size: 40px;
-  color: #c8b8a8;
-  user-select: none;
-}
-.status-dot {
-  position: absolute;
-  bottom: 4px;
-  right: 4px;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: #12b76a;
-  border: 2px solid #fff;
-}
-
-.hero-eyebrow {
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-  margin-bottom: 14px;
-}
-.hero-name {
-  font-family: var(--font-sans);
+.hero-eyebrow,
+.section-label,
+.post-meta,
+.tag {
   font-weight: 700;
-  font-size: clamp(36px, 6vw, 52px);
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-  color: var(--neutral-900);
-  margin-bottom: 18px;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.06em;
 }
-.hero-name em {
-  font-family: var(--font-serif);
-  font-style: italic;
+.hero-eyebrow { color: var(--ink-muted); }
+.hero-name {
   font-weight: 300;
-  letter-spacing: -0.01em;
+  font-size: clamp(40px, 9vw, 64px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin: var(--space-3) 0 var(--space-4);
 }
 .hero-bio {
-  font-size: 18px;
-  line-height: 1.65;
-  color: var(--text-secondary);
-  max-width: 480px;
-  margin-bottom: 28px;
+  max-width: 52ch;
+  margin-bottom: var(--space-4);
 }
-.hero-bio strong { color: var(--neutral-700); font-weight: 500; }
+.hero-bio strong { font-weight: 700; }
 
-.hero-chips {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 36px;
+.hero-tags { display: flex; gap: var(--space-2); flex-wrap: wrap; margin-bottom: var(--space-4); }
+.tag {
+  display: inline-block;
+  padding: 4px 8px;
+  border: var(--border-hairline) solid var(--primary);
+  border-radius: var(--radius-none);
+  color: var(--primary);
+  background: transparent;
 }
-.chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 5px 12px;
-  border-radius: 99px;
-  border: 1px solid var(--border);
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--neutral-700);
-  background: var(--neutral-50);
-  transition: border-color var(--transition), background var(--transition);
-}
-.chip.active {
-  background: var(--pink-light);
-  border-color: #f4a6d0;
-  color: #a0155a;
-}
-.chip-dot { width: 6px; height: 6px; border-radius: 50%; background: #12b76a; }
+.tag.solid { background: var(--primary); color: var(--on-primary); }
 
-.social-row {
-  display: flex;
-  gap: 12px;
-  align-items: center;
+.social-row { display: flex; gap: var(--space-4); flex-wrap: wrap; font-size: 14px; line-height: 21px; }
+.link {
+  color: var(--primary);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  transition: color 120ms linear;
 }
-.social-link {
-  width: 38px;
-  height: 38px;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border);
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--neutral-500);
-  text-decoration: none;
-  transition: border-color var(--transition), color var(--transition), box-shadow var(--transition);
-  box-shadow: var(--shadow-sm);
-}
-.social-link:hover {
-  border-color: var(--neutral-300);
-  color: var(--neutral-900);
-  box-shadow: var(--shadow-md);
-}
-.social-link svg { width: 18px; height: 18px; }
+.link:hover { color: var(--primary-deep); }
 
 /* ── Section ── */
-.section {
-  padding: 64px 0;
-  border-top: 1px solid var(--border);
-}
-.section-label {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-  margin-bottom: 20px;
-}
-.section-heading {
-  font-family: var(--font-sans);
-  font-weight: 700;
-  font-size: 26px;
-  letter-spacing: -0.02em;
-  color: var(--neutral-900);
-  margin-bottom: 16px;
-}
-.section-heading em {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 300;
-}
+.section { padding: var(--space-5) 0 var(--space-6); border-top: var(--border-hairline) solid var(--rule); }
+.section-label { color: var(--ink-muted); margin-bottom: var(--space-4); }
 
 /* ── About ── */
-.about-text {
-  font-size: 16px;
-  line-height: 1.75;
-  color: var(--neutral-700);
-}
-.about-text p + p { margin-top: 16px; }
-.about-text a {
-  color: var(--purple);
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-color var(--transition);
-}
-.about-text a:hover { border-color: var(--purple); }
+.about-text p { max-width: 65ch; }
+.about-text p + p { margin-top: var(--space-3); }
 
 /* ── Writing ── */
-.writing-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
 .post-card {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  padding: 20px 0;
-  border-bottom: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 80px minmax(0, 1fr);
+  gap: var(--space-4);
+  padding: var(--space-4) 0;
+  border-top: var(--border-hairline) solid var(--rule);
   text-decoration: none;
   color: inherit;
-  transition: none;
-  cursor: pointer;
 }
-.post-card:first-child { border-top: 1px solid var(--border); }
-.post-card:hover .post-title { color: var(--purple); }
-.post-card:hover .post-arrow { opacity: 1; transform: translateX(0); }
-.post-meta {
-  flex-shrink: 0;
-  width: 72px;
-  font-size: 12px;
-  color: var(--text-secondary);
-  line-height: 1.4;
-  padding-top: 3px;
-}
-.post-month { font-weight: 500; }
-.post-body { flex: 1; }
+.post-card:hover { background: var(--tint); }
+.post-card:focus-visible { outline-offset: -2px; }
+.post-meta { color: var(--ink-muted); padding-top: 6px; }
 .post-title {
-  font-family: var(--font-ui);
   font-weight: 700;
-  font-size: 16px;
-  color: var(--neutral-900);
-  line-height: 1.35;
-  margin-bottom: 6px;
-  transition: color var(--transition);
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: -0.01em;
+  margin-bottom: var(--space-2);
+  transition: color 120ms linear;
 }
+.post-card:hover .post-title { color: var(--primary); }
 .post-excerpt {
   font-size: 14px;
-  color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 21px;
+  color: var(--ink-muted);
+  max-width: 60ch;
+  margin-bottom: var(--space-2);
 }
-.post-tag {
-  display: inline-block;
-  margin-top: 8px;
-  padding: 2px 8px;
-  border-radius: 99px;
-  background: var(--neutral-100);
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--neutral-500);
-  letter-spacing: 0.03em;
-}
-.post-arrow {
-  flex-shrink: 0;
-  color: var(--text-secondary);
-  opacity: 0;
-  transform: translateX(-4px);
-  transition: opacity var(--transition), transform var(--transition);
-  padding-top: 2px;
-  font-size: 18px;
-}
-
-.writing-footer {
-  margin-top: 24px;
-  display: flex;
-  justify-content: flex-start;
-}
-.link-btn {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--purple);
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: gap var(--transition);
-}
-.link-btn:hover { gap: 10px; }
+.writing-footer { margin-top: var(--space-4); border-top: var(--border-hairline) solid var(--rule); padding-top: var(--space-4); }
 
 /* ── Footer ── */
 footer {
-  border-top: 1px solid var(--border);
-  padding: 40px 32px;
   max-width: 680px;
   margin: 0 auto;
+  padding: var(--space-4);
+  border-top: var(--border-strong) solid var(--primary);
   display: flex;
-  align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 16px;
-}
-.footer-left {
+  gap: var(--space-3);
   font-size: 14px;
-  color: var(--text-secondary);
+  line-height: 21px;
+  color: var(--ink-muted);
 }
-.footer-left strong { color: var(--neutral-700); font-weight: 500; }
-.footer-social { display: flex; gap: 10px; }
+footer strong { font-weight: 700; color: var(--ink); }
 
 /* ── Responsive ── */
 @media (max-width: 600px) {
-  nav { padding: 0 20px; }
-  .nav-links { gap: 20px; }
-  main { padding: 0 20px; }
-  .hero { padding: 56px 0 56px; }
-  .hero-name { font-size: 36px; }
-  .hero-bio { font-size: 16px; }
-  footer { padding: 32px 20px; }
-  .post-meta { width: 56px; }
+  nav { padding: var(--space-3); }
+  main { padding: 0 var(--space-3); }
+  footer { padding: var(--space-3); }
+  .hero { padding: var(--space-5) 0; }
+  .post-card { grid-template-columns: 1fr; gap: var(--space-1); }
+  .post-meta { padding-top: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
 }
 </style>
 </head>
@@ -397,7 +197,7 @@ footer {
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#writing">Writing</a>
-    <a href="https://linkedin.com/in/richhenson" class="nav-cta">Get in touch →</a>
+    <a href="https://linkedin.com/in/richhenson" class="nav-cta">Get in touch</a>
   </div>
 </nav>
 
@@ -405,47 +205,22 @@ footer {
 
   <!-- Hero -->
   <section class="hero">
-    <div class="photo-wrap">
-      <div class="photo-ring">
-        <img src="uploads/T7LJ6MUHE-U01D5NHQFV3-654c39841561-512.png" alt="Rich Henson" />
-      </div>
-      <div class="status-dot" title="Open to opportunities"></div>
-    </div>
+    <img class="photo" src="uploads/T7LJ6MUHE-U01D5NHQFV3-654c39841561-512.png" alt="Rich Henson" />
     <div class="hero-eyebrow">Product Manager · Melbourne, Australia</div>
-    <h1 class="hero-name">Hi, I'm <em>Rich Henson.</em></h1>
+    <h1 class="hero-name">Hi, I'm<br />Rich Henson.</h1>
     <p class="hero-bio">
-      I'm a PM and Product Ops lead at <strong>Sked Social</strong>. I don't write code — I build systems. AI agents, automation stacks, and tooling that let a small team operate at a scale.
+      I'm a PM and Product Ops lead at <strong>Sked Social</strong>. I don't write code, I build systems. AI agents, automation stacks, and tooling that let a small team operate at a scale.
     </p>
-    <div class="hero-chips">
-      <span class="chip">Product management</span>
-      <span class="chip">AI &amp; automation</span>
-      <span class="chip">HubSpot RevOps</span>
+    <div class="hero-tags">
+      <span class="tag solid">Open to opportunities</span>
+      <span class="tag">Product management</span>
+      <span class="tag">AI &amp; automation</span>
+      <span class="tag">HubSpot RevOps</span>
     </div>
     <div class="social-row">
-      <!-- LinkedIn -->
-      <a href="https://linkedin.com/in/richhenson" class="social-link" title="LinkedIn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="2" width="20" height="20" rx="4"></rect>
-          <line x1="8" y1="11" x2="8" y2="16"></line>
-          <line x1="8" y1="8" x2="8" y2="8.01"></line>
-          <line x1="12" y1="16" x2="12" y2="11"></line>
-          <path d="M16 16v-3a2 2 0 0 0-4 0"></path>
-        </svg>
-      </a>
-      <!-- Instagram -->
-      <a href="https://instagram.com/richhenson" class="social-link" title="Instagram">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="2" width="20" height="20" rx="4"></rect>
-          <circle cx="12" cy="12" r="4"></circle>
-          <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"></circle>
-        </svg>
-      </a>
-      <!-- GitHub -->
-      <a href="https://github.com/rich319" class="social-link" title="GitHub">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/>
-        </svg>
-      </a>
+      <a href="https://linkedin.com/in/richhenson" class="link">LinkedIn</a>
+      <a href="https://github.com/rich319" class="link">GitHub</a>
+      <a href="https://instagram.com/richhenson" class="link">Instagram</a>
     </div>
   </section>
 
@@ -454,13 +229,13 @@ footer {
     <div class="section-label">About</div>
     <div class="about-text">
       <p>
-        Six years at <a href="https://skedsocial.com">Sked Social</a> — four in Customer Success, two in product. That CS background isn't a footnote; it's why the product work lands. I live at the intersection of what customers need and what the product does, and I spend most of my time closing the gap between the two.
+        Six years at <a href="https://skedsocial.com" class="link">Sked Social</a>, four in Customer Success and two in product. That CS background isn't a footnote, it's why the product work lands. I live at the intersection of what customers need and what the product does, and I spend most of my time closing the gap between the two.
       </p>
       <p>
-        My build layer is AI. Agents, automations, and workflows that let a small team operate at a scale it otherwise couldn't — without hiring for every problem or accepting that the boring stuff just has to exist. I don't write code. I build systems.
+        My build layer is AI. Agents, automations, and workflows that let a small team operate at a scale it otherwise couldn't, without hiring for every problem or accepting that the boring stuff just has to exist. I don't write code. I build systems.
       </p>
       <p>
-        On the side I do solo <a href="#">HubSpot RevOps consulting</a> for teams who've ended up in a mess — deal automation, lead flows, pipelines, reporting. Usually someone built something without a plan. I fix it.
+        On the side I do solo <a href="#" class="link">HubSpot RevOps consulting</a> for teams who've ended up in a mess: deal automation, lead flows, pipelines, reporting. Usually someone built something without a plan. I fix it.
       </p>
     </div>
   </section>
@@ -472,143 +247,57 @@ footer {
     <div class="writing-list">
 
       <a class="post-card" href="#">
-        <div class="post-meta">
-          <div class="post-month">Apr</div>
-          <div>2026</div>
-        </div>
+        <div class="post-meta">Apr 2026</div>
         <div class="post-body">
           <div class="post-title">Onboarding emails that actually got opened</div>
           <div class="post-excerpt">I built a Relevance AI pipeline that writes individually personalised onboarding emails from customer data. 27.1% open rate vs 17.0% for the control. Here's how it works.</div>
-          <span class="post-tag">AI</span>
+          <span class="tag">AI</span>
         </div>
-        <div class="post-arrow">→</div>
       </a>
 
       <a class="post-card" href="#">
-        <div class="post-meta">
-          <div class="post-month">Mar</div>
-          <div>2026</div>
-        </div>
+        <div class="post-meta">Mar 2026</div>
         <div class="post-body">
-          <div class="post-title">Customer voice to prioritised backlog — with minimal human handling</div>
-          <div class="post-excerpt">How I built a call intelligence pipeline that ingests recordings, surfaces feature gaps, and adds them to Linear — cross-referenced, clustered, and ready for prioritisation.</div>
-          <span class="post-tag">Product</span>
+          <div class="post-title">Customer voice to prioritised backlog, with minimal human handling</div>
+          <div class="post-excerpt">How I built a call intelligence pipeline that ingests recordings, surfaces feature gaps, and adds them to Linear, cross-referenced, clustered, and ready for prioritisation.</div>
+          <span class="tag">Product</span>
         </div>
-        <div class="post-arrow">→</div>
       </a>
 
       <a class="post-card" href="#">
-        <div class="post-meta">
-          <div class="post-month">Feb</div>
-          <div>2026</div>
-        </div>
+        <div class="post-meta">Feb 2026</div>
         <div class="post-body">
           <div class="post-title">A go-to-market agent that writes the deliverables, not the brief</div>
-          <div class="post-excerpt">Feed a Linear ticket to sked-gtm and get a fully written Notion project back — email copy, social posts, help centre articles, tracking specs. Not stubs. The actual content.</div>
-          <span class="post-tag">AI</span>
+          <div class="post-excerpt">Feed a Linear ticket to sked-gtm and get a fully written Notion project back: email copy, social posts, help centre articles, tracking specs. Not stubs. The actual content.</div>
+          <span class="tag">AI</span>
         </div>
-        <div class="post-arrow">→</div>
       </a>
 
       <a class="post-card" href="#">
-        <div class="post-meta">
-          <div class="post-month">Jan</div>
-          <div>2026</div>
-        </div>
+        <div class="post-meta">Jan 2026</div>
         <div class="post-body">
           <div class="post-title">The CS background isn't a footnote</div>
           <div class="post-excerpt">Four years in Customer Success before moving into product. Why that order matters, and what PMs miss when they skip the customer-facing years.</div>
-          <span class="post-tag">Product</span>
+          <span class="tag">Product</span>
         </div>
-        <div class="post-arrow">→</div>
       </a>
 
     </div>
 
     <div class="writing-footer">
-      <a href="#" class="link-btn">All posts <span>→</span></a>
+      <a href="#" class="link">All posts</a>
     </div>
   </section>
 
 </main>
 
 <footer>
-  <div class="footer-left">
-    <strong>Rich Henson</strong> · Melbourne, Australia · 2026
-  </div>
-  <div class="footer-social">
-    <a href="https://linkedin.com/in/richhenson" class="social-link" title="LinkedIn" style="width:32px;height:32px;">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;">
-        <rect x="2" y="2" width="20" height="20" rx="4"></rect>
-        <line x1="8" y1="11" x2="8" y2="16"></line>
-        <line x1="8" y1="8" x2="8" y2="8.01"></line>
-        <line x1="12" y1="16" x2="12" y2="11"></line>
-        <path d="M16 16v-3a2 2 0 0 0-4 0"></path>
-      </svg>
-    </a>
-    <a href="https://github.com/rich319" class="social-link" title="GitHub" style="width:32px;height:32px;">
-      <svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px;">
-        <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/>
-      </svg>
-    </a>
+  <div><strong>Rich Henson</strong> · Melbourne, Australia · 2026</div>
+  <div class="social-row">
+    <a href="https://linkedin.com/in/richhenson" class="link">LinkedIn</a>
+    <a href="https://github.com/rich319" class="link">GitHub</a>
   </div>
 </footer>
-
-<!-- Tweaks -->
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
-<script type="text/babel" src="tweaks-panel.jsx"></script>
-<script type="text/babel">
-const TWEAK_DEFAULS = /*EDITMODE-BEGIN*/{
-  "accent": "#ED207C",
-  "showStatus": true,
-  "heroSize": 52,
-  "photoEmoji": "👤"
-}/*EDITMODE-END*/;
-
-function TweaksApp() {
-  const { values, set } = useTweaks(TWEAK_DEFAULS);
-
-  React.useEffect(() => {
-    document.documentElement.style.setProperty('--pink', values.accent);
-    document.documentElement.style.setProperty('--pink-light', values.accent + '22');
-  }, [values.accent]);
-
-  React.useEffect(() => {
-    const dot = document.querySelector('.status-dot');
-    const chip = document.querySelector('.chip.active');
-    if (dot) dot.style.display = values.showStatus ? '' : 'none';
-    if (chip) chip.style.display = values.showStatus ? '' : 'none';
-  }, [values.showStatus]);
-
-  React.useEffect(() => {
-    const name = document.querySelector('.hero-name');
-    if (name) name.style.fontSize = values.heroSize + 'px';
-  }, [values.heroSize]);
-
-  React.useEffect(() => {
-    const ph = document.querySelector('.photo-placeholder');
-    if (ph) ph.textContent = values.photoEmoji;
-  }, [values.photoEmoji]);
-
-  return (
-    <TweaksPanel title="Tweaks">
-      <TweakSection label="Identity">
-        <TweakColor label="Accent colour" value={values.accent} onChange={v => set('accent', v)} />
-        <TweakToggle label="Show 'open to work'" value={values.showStatus} onChange={v => set('showStatus', v)} />
-        <TweakText label="Photo emoji (placeholder)" value={values.photoEmoji} onChange={v => set('photoEmoji', v)} />
-      </TweakSection>
-      <TweakSection label="Hero">
-        <TweakSlider label="Name size" value={values.heroSize} min={32} max={72} step={2} onChange={v => set('heroSize', v)} />
-      </TweakSection>
-    </TweaksPanel>
-  );
-}
-
-ReactDOM.createRoot(document.getElementById('tweaks-root')).render(<TweaksApp />);
-</script>
-<div id="tweaks-root"></div>
 
 </body>
 </html>

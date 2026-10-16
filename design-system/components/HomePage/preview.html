@@ -1,0 +1,48 @@
+<!-- @dsCard group="Pages" page height=880 subtitle="the homepage rebuilt on the system" -->
+<link rel="stylesheet" href="../../tokens.css">
+<style>
+*{box-sizing:border-box}
+body{font-variation-settings:"MONO" 50;margin:0;background:var(--ground);color:var(--ink);font-family:var(--font-areal);text-transform:lowercase;-webkit-font-smoothing:antialiased}
+nav{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:0 24px;min-height:56px;border-bottom:2px solid var(--primary)}
+.name{font:700 16px/1 var(--font-areal);color:var(--ink);text-decoration:none}
+.links{display:flex;gap:24px}.links a{font:400 14px/1 var(--font-areal);color:var(--ink-muted);text-decoration:none}.links a:hover{color:var(--primary)}
+main{max-width:680px;margin:0 auto;padding:0 24px}
+.hero{padding:64px 0}
+.ph{width:96px;height:96px;background:var(--primary);color:var(--on-primary);display:flex;align-items:center;justify-content:center;font:700 32px/1 var(--font-areal);margin-bottom:24px}
+.eyebrow,.label,.date{font:700 12px/16px var(--font-areal);font-variation-settings:"MONO" 50;letter-spacing:.06em;color:var(--ink-muted)}
+h1{font:700 clamp(40px,9vw,64px)/.95 var(--font-areal);letter-spacing:-.02em;margin:16px 0 24px}
+.bio{font:400 17px/26px var(--font-areal);max-width:52ch;margin:0 0 24px}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.tag{font:700 12px/16px var(--font-areal);font-variation-settings:"MONO" 50;letter-spacing:.06em;padding:4px 8px;border:1px solid var(--primary);color:var(--primary)}
+.tag.solid{background:var(--primary);color:var(--on-primary)}
+.btn{display:inline-block;font:700 14px/1 var(--font-areal);padding:14px 20px;border:2px solid var(--primary);background:var(--primary);color:var(--on-primary);text-decoration:none}
+.btn:hover{background:var(--primary-deep);border-color:var(--primary-deep)}
+.sec{border-top:1px solid var(--rule);padding:40px 0 64px}
+.label{margin:0 0 24px}
+.sec p.t{font:400 17px/26px var(--font-areal);margin:0 0 16px;max-width:65ch}
+.sec a.u{color:var(--primary);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.post{display:grid;grid-template-columns:72px minmax(0,1fr);gap:24px;padding:24px 0;border-top:1px solid var(--rule);text-decoration:none;color:inherit}
+.post:hover{background:var(--tint)}.post:hover .title{color:var(--primary)}
+.date{padding-top:6px}
+.title{font:700 24px/28px var(--font-areal);letter-spacing:-.01em;margin:0 0 8px}
+.ex{font:400 14px/21px var(--font-areal);color:var(--ink-muted);margin:0 0 8px}
+footer{max-width:680px;margin:0 auto;padding:24px;border-top:2px solid var(--primary);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font:400 14px/21px var(--font-areal);color:var(--ink-muted)}
+footer a{color:var(--primary)}
+a:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+</style>
+<nav><a class="name" href="#">rich henson</a><div class="links"><a href="#about">about</a><a href="#writing">writing</a><a href="#">get in touch</a></div></nav>
+<main>
+<section class="hero"><div class="ph">rh</div><div class="eyebrow">product manager, melbourne</div><h1>hi, i'm<br>rich henson.</h1>
+<p class="bio">i'm a pm and product ops lead. i don't write code, i build systems: ai agents, automation stacks and tooling that let a small team operate at scale.</p>
+<div class="tags"><span class="tag solid">open to opportunities</span><span class="tag">product management</span><span class="tag">ai and automation</span><span class="tag">hubspot revops</span></div>
+<a class="btn" href="#">get in touch</a></section>
+<section class="sec" id="about"><p class="label">about</p>
+<p class="t">six years on the same product, four in customer success and two in product. that background is why the product work lands. i live between what customers need and what the product does.</p>
+<p class="t">my build layer is ai: agents, automations and workflows. on the side i do solo <a class="u" href="#">hubspot revops consulting</a> for teams who ended up in a mess. usually someone built something without a plan. i fix it.</p></section>
+<section class="sec" id="writing"><p class="label">writing</p>
+<a class="post" href="#"><div class="date">apr 2026</div><div><h3 class="title">onboarding emails that actually got opened</h3><p class="ex">a personalised pipeline lifted open rate to 27.1% against 17.0% for the control.</p><span class="tag">ai</span></div></a>
+<a class="post" href="#"><div class="date">mar 2026</div><div><h3 class="title">customer voice to prioritised backlog</h3><p class="ex">a call intelligence pipeline that surfaces feature gaps and files them, clustered and ready to prioritise.</p><span class="tag">product</span></div></a>
+<a class="post" href="#"><div class="date">feb 2026</div><div><h3 class="title">a go-to-market agent that writes the deliverables</h3><p class="ex">feed it a ticket and get the actual copy back, not stubs.</p><span class="tag">ai</span></div></a>
+<a class="post" href="#"><div class="date">jan 2026</div><div><h3 class="title">the cs background isn't a footnote</h3><p class="ex">why that order matters, and what pms miss when they skip the customer facing years.</p><span class="tag">product</span></div></a>
+</section></main>
+<footer><span>rich henson, melbourne, 2026</span><span><a href="#">linkedin</a> / <a href="#">github</a> / <a href="#">instagram</a></span></footer>
