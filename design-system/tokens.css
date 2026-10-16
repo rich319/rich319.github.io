@@ -71,7 +71,7 @@
 }
 @font-face {
   font-family: "ABC Areal";
-  src: url("fonts/ABCArealSuperfamilyVariable.ttf") format("truetype");
+  src: url("fonts/ABCArealSuperfamilyVariable.woff2") format("woff2");
   font-weight: 400 700;
   font-style: normal;
   font-display: swap;

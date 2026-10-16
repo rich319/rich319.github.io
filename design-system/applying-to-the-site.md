@@ -3,7 +3,7 @@
 Replace the `:root` block and the three font faces at the top of `index.html` with this, then swap the rules in the table.
 
 ```css
-@font-face { font-family: 'ABC Areal'; src: url('fonts/ABCArealSuperfamilyVariable.ttf'); font-weight: 400 700; font-style: normal; }
+@font-face { font-family: 'ABC Areal'; src: url('fonts/ABCArealSuperfamilyVariable.woff2'); font-weight: 400 700; font-style: normal; }
 :root {
   --ground: #EBF6FE; --tint: #D6EAFB; --rule: #9FC3E6;
   --ink: #0A1230; --ink-muted: #44506F;
